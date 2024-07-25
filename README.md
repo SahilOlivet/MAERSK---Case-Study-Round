@@ -58,7 +58,7 @@ This version manually controls resource requests and releases, providing more ex
 
 In this version, the constants provided in the task description remain the same, only the code structure is modified to avoid using the with statement.
 
-### 3. Priority-Based Vessel Operation
+### 3.Priority-Based Vessel Operations: Preparing for Future Enhancements
 
 This version introduces a priority system for vessels. Certain vessels have higher priority (e.g., carrying perishable goods) and can preempt resources from lower-priority vessels. The manual control over resource management is used here to implement this priority system, ensuring that higher-priority vessels are serviced first while still ensuring fair service to lower-priority vessels.
 
