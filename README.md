@@ -9,6 +9,7 @@ This repository contains three versions of a simulation for a container terminal
 - [Environment](#environment)
 - [Processes](#processes)
 - [Resources](#resources)
+- [Events Logged](#events-logged)
 - [Code Versions](#code-versions)
   - [1. Simulation with with statement](#1-simulation-with-with-statement)
   - [2. Simulation with Manual Resource Management](#2-simulation-with-manual-resource-management)
@@ -35,15 +36,27 @@ The environment is simulated using the SimPy library, which provides a framework
 - *Cranes*: Limited to 2, used for unloading containers from vessels.
 - *Trucks*: Limited to 3, used for transporting containers to yard blocks.
 
+## Events Logged
+
+The following events are logged with timestamps to show the sequence and timing of activities in the terminal:
+
+- *Vessel Arrival*: Logs the arrival time of each vessel.
+- *Vessel Berthing*: Logs when a vessel berths and its waiting time if it had to wait for a berth to become available.
+- *Crane Operations*: Logs when a crane starts unloading a container from a vessel.
+- *Truck Operations*: Logs when a container is placed on a truck, when the truck starts transporting the container to the yard block, and when the truck returns to the quay crane.
+- *Vessel Departure*: Logs when a vessel departs after unloading all containers.
+
 ## Code Versions
 
-### 1. Simulation with with statement
+### 1. Simulation with 'with' statement
 
 This version uses the with statement for resource requests and releases. It simplifies resource management by automatically handling resource release at the end of the with block. This is a straightforward approach that ensures resources are properly managed without needing explicit release calls.
 
 ### 2. Simulation with Manual Resource Management
 
-This version manually controls resource requests and releases, providing more explicit control over the resource lifecycle. This approach allows for finer control over when and how resources are released, which can be useful in complex scenarios or when specific resource management strategies are needed.
+This version manually controls resource requests and releases, providing more explicit control over the resource lifecycle. This approach allows for finer control over when and how resources are released, which can be useful in complex scenarios or when specific resource management strategies are needed. 
+
+In this version, the constants provided in the task description remain the same, only the code structure is modified to avoid using the with statement.
 
 ### 3. Priority-Based Vessel Operation
 
@@ -54,5 +67,3 @@ This version introduces a priority system for vessels. Certain vessels have high
 1. *Install Dependencies*: Make sure you have Python and SimPy installed. You can install SimPy using pip:
    ```bash
    pip install simpy
-
-
